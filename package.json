@@ -1,0 +1,61 @@
+{
+  "name": "bb-plugin-argocd-external",
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "bb": ">=0.35",
+    "bbPluginSdk": "^0.4.1"
+  },
+  "bb": {
+    "name": "Argo CD",
+    "description": "Browse Argo CD applications, sync state, deployed resources, and pod logs in BB, then send them to agents.",
+    "branding": {
+      "icon": "Container"
+    },
+    "server": "./server.ts",
+    "app": "./app.tsx"
+  },
+  "dependencies": {
+    "@hugeicons/core-free-icons": "^4.1.3",
+    "@hugeicons/react": "^1.1.6",
+    "@radix-ui/react-select": "^2.3.7",
+    "@radix-ui/react-slot": "^1.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "sonner": "^1.7.4",
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@bb/plugin-sdk": "file:vendor/bb-plugin-sdk-0.4.1.tgz",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "better-sqlite3": "^12.0.0",
+    "cron-parser": "^5.5.0",
+    "hono": "^4.11.9",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.1"
+  },
+  "description": "Browse Argo CD applications, sync state, deployed resources, and pod logs in BB, then send them to agents.",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://github.com/Willhong/bb-plugin-argocd#readme",
+  "bugs": {
+    "url": "https://github.com/Willhong/bb-plugin-argocd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Willhong/bb-plugin-argocd.git"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "bb plugin build ."
+  },
+  "keywords": [
+    "bb-plugin",
+    "argocd"
+  ]
+}
