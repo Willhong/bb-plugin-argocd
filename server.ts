@@ -13,7 +13,7 @@
 import { execFile } from "node:child_process";
 import { request as httpRequest } from "node:http";
 import { request as httpsRequest } from "node:https";
-import { defineRpcContract, type BbPluginApi } from "@bb/plugin-sdk";
+import { defineRpcContract, type BbPluginApi } from "@get-bb/plugin-sdk";
 import { z } from "zod";
 
 const SYNC_INTERVAL_MS = 60_000;
@@ -1658,9 +1658,11 @@ export default async function plugin(bb: BbPluginApi) {
       "List Argo CD applications with their sync and health status. Read-only; it never syncs or modifies the cluster.",
     instructions:
       "Use argocd_list_applications to find which deployed applications are OutOfSync or Degraded before guessing from the repo.",
-    experimental_statusLabels: {
-      pending: "Listing Argo CD applications",
-      completed: "Listed Argo CD applications",
+    presentation: {
+      label: {
+        pending: "Listing Argo CD applications",
+        completed: "Listed Argo CD applications",
+      },
     },
     parameters: z.object({
       project: z
@@ -1701,9 +1703,11 @@ export default async function plugin(bb: BbPluginApi) {
     name: "argocd_get_application",
     description:
       "Read one Argo CD application in detail: sync and health status, managed resources, conditions, and the last sync operation. Read-only.",
-    experimental_statusLabels: {
-      pending: "Reading Argo CD application",
-      completed: "Read Argo CD application",
+    presentation: {
+      label: {
+        pending: "Reading Argo CD application",
+        completed: "Read Argo CD application",
+      },
     },
     parameters: z.object({
       name: z
@@ -1750,9 +1754,11 @@ export default async function plugin(bb: BbPluginApi) {
       "Read recent pod logs for an Argo CD application. Optionally narrow to a pod, namespace, or container. Read-only; it never modifies the cluster.",
     instructions:
       "Use a bounded tail and a recent sinceSeconds window. Narrow to a pod or container when the application has many workloads.",
-    experimental_statusLabels: {
-      pending: "Reading Argo CD pod logs",
-      completed: "Read Argo CD pod logs",
+    presentation: {
+      label: {
+        pending: "Reading Argo CD pod logs",
+        completed: "Read Argo CD pod logs",
+      },
     },
     parameters: podLogInputSchema,
     async execute(query, { signal }) {

@@ -27,7 +27,6 @@
     "routes.test.ts",
     "app.tsx",
     "vitest.config.ts",
-    "types",
     "components",
     "lib"
   ]
