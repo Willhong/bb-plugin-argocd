@@ -4,7 +4,7 @@
   "type": "module",
   "engines": {
     "bb": ">=0.35",
-    "bbPluginSdk": ">=0.4.22"
+    "bbPluginSdk": ">=0.6.109"
   },
   "bb": {
     "name": "Argo CD",
@@ -27,7 +27,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@get-bb/plugin-sdk": "file:vendor/get-bb-plugin-sdk-0.4.22.tgz",
+    "@get-bb/plugin-sdk": "0.6.109",
     "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",

@@ -117,7 +117,5 @@ bb plugin install .
 bb plugin dev .
 ```
 
-The repository vendors the matching BB plugin SDK package under `vendor/` for
-portable typechecking and tests until `@bb/plugin-sdk` is published to npm.
-Runtime loading still uses the SDK provided by BB; the vendored package is a
-development dependency only.
+The plugin uses published `@get-bb/plugin-sdk` for typechecking and tests.
+Runtime loading uses the SDK provided by BB.

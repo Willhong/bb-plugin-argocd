@@ -16,7 +16,6 @@ import {
   useRealtime,
   useRpc,
   type PluginNavPanelProps,
-  type PluginThreadPanelProps,
 } from "@get-bb/plugin-sdk/app";
 import type {
   ArgoApplication,
@@ -951,7 +950,7 @@ function ArgocdPanel({ subPath }: PluginNavPanelProps) {
  * A panel tab has no route of its own (there is no `subPath` here), so the
  * list/detail navigation lives in component state instead of the URL.
  */
-function ArgocdSidePanel(_props: PluginThreadPanelProps) {
+function ArgocdSidePanel(_props: { threadId: string }) {
   const status = useStatus();
   const [filter, setFilter] = useState<Filter>(NO_FILTER);
   const [selected, setSelected] = useState<string | null>(null);
@@ -982,7 +981,9 @@ export default definePluginApp((app) => {
     component: ArgocdPanel,
     headerContent: PanelHeader,
   });
-  app.slots.threadPanelAction({
+  app.slots.experimental_tab({
+    context: { kind: "thread" },
+    availability: "action",
     id: "applications",
     title: "Argo CD",
     icon: "Container",
